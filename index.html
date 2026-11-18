@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chilaquileando | Tu antojo, tus chilaquiles, tu estilo</title>
+    <!-- Google Fonts inspiradas en la caligrafía artesanal y moderna de la marca -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Oswald:wght@500;600;700&family=Pacifico&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Paleta extraída de las imágenes de referencia */
+            --bg-pink: #F8C8DC;
+            --bg-cream: #F5E1DA;
+            --bg-soft: #FFF7F5;
+            --brand-orange: #F34B26;
+            --brand-coral: #E06B7D;
+            --brand-blue: #1C4A9B;
+            --salsa-green: #4C8C2B;
+            --text-dark: #2B1A17;
+            --text-muted: #634944;
+            --white: #FFFFFF;
+            --shadow-soft: 0 12px 30px rgba(243, 75, 38, 0.12);
+            --shadow-card: 0 10px 25px rgba(28, 74, 155, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Tipografía de marca */
+        .font-logo {
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .font-script {
+            font-family: 'Pacifico', cursive;
+            font-weight: 400;
+        }
+
+        .font-display {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Navbar */
+        header {
+            background-color: rgba(248, 200, 220, 0.92);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid rgba(243, 75, 38, 0.15);
+            padding: 0.85rem 5%;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-logo {
+            display: flex;
+            flex-direction: column;
+            line-height: 0.85;
+            text-decoration: none;
+            color: var(--brand-orange);
+            transform: rotate(-2deg);
+            transition: transform 0.3s ease;
+        }
+
+        .brand-logo:hover {
+            transform: rotate(0deg) scale(1.04);
+        }
+
+        .brand-logo .top {
+            font-size: 1.75rem;
+        }
+
+        .brand-logo .mid {
+            font-size: 1rem;
+            color: var(--brand-coral);
+            margin-left: 14px;
+            margin-top: -2px;
+            margin-bottom: -2px;
+        }
+
+        .brand-logo .bot {
+            font-size: 1.75rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.6rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--brand-blue);
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--brand-orange);
+        }
+
+        .btn-whatsapp-nav {
+            background-color: var(--brand-orange);
+            color: var(--white) !important;
+            padding: 0.65rem 1.3rem;
+            border-radius: 50px;
+            box-shadow: 0 4px 14px rgba(243, 75, 38, 0.35);
+            transition: all 0.25s ease !important;
+        }
+
+        .btn-whatsapp-nav:hover {
+            background-color: #d93b18;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--bg-pink) 0%, var(--bg-cream) 100%);
+            padding: 4rem 5% 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .location-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--white);
+            color: var(--brand-blue);
+            padding: 0.45rem 1rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+            margin-bottom: 1.2rem;
+            border: 1.5px solid rgba(28, 74, 155, 0.15);
+        }
+
+        .hero-title {
+            font-size: clamp(2.8rem, 5vw, 4.4rem);
+            color: var(--brand-orange);
+            line-height: 1.05;
+            margin-bottom: 0.8rem;
+            text-shadow: 2px 3px 0px rgba(255, 255, 255, 0.8);
+        }
+
+        .hero-slogan {
+            font-size: clamp(1.4rem, 2.5vw, 2rem);
+            color: var(--brand-blue);
+            margin-bottom: 1.4rem;
+            transform: rotate(-1deg);
+            display: inline-block;
+        }
+
+        .hero-desc {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+            max-width: 540px;
+        }
+
+        .hero-desc strong {
+            color: var(--brand-orange);
+        }
+
+        .hero-cta-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .btn-primary {
+            background-color: var(--brand-orange);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.05rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            box-shadow: 0 10px 25px rgba(243, 75, 38, 0.35);
+            transition: all 0.25s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: #d93b18;
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary {
+            background-color: var(--white);
+            color: var(--brand-blue);
+            padding: 1rem 1.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.05rem;
+            border: 2px solid var(--brand-blue);
+            transition: all 0.25s ease;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--brand-blue);
+            color: var(--white);
+        }
+
+        /* Espacio Foto 1 (Hero Principal) */
+        .hero-photo-frame {
+            background-color: var(--white);
+            padding: 1rem;
+            border-radius: 28px;
+            box-shadow: var(--shadow-soft);
+            transform: rotate(2deg);
+            border: 3px dashed var(--brand-coral);
+            position: relative;
+        }
+
+        .photo-slot {
+            width: 100%;
+            border-radius: 20px;
+            background: linear-gradient(145deg, #fff1f5 0%, #ffe6df 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 1.5rem;
+            color: var(--brand-coral);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .photo-slot:hover {
+            background: linear-gradient(145deg, #ffe7ef 0%, #ffdad0 100%);
+        }
+
+        .photo-slot img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+        }
+
+        .photo-slot.has-image img {
+            display: block;
+        }
+
+        .photo-slot.has-image .slot-placeholder {
+            opacity: 0;
+        }
+
+        .hero-photo-slot {
+            height: 400px;
+        }
+
+        .slot-badge {
+            background-color: var(--brand-orange);
+            color: var(--white);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.3rem 0.85rem;
+            border-radius: 50px;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .slot-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .slot-title {
+            font-weight: 700;
+            color: var(--text-dark);
+            font-size: 1rem;
+        }
+
+        .slot-hint {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
+        .price-sticker {
+            position: absolute;
+            bottom: -18px;
+            left: -18px;
+            background-color: var(--brand-blue);
+            color: var(--white);
+            padding: 0.9rem 1.3rem;
+            border-radius: 20px;
+            font-weight: 700;
+            box-shadow: 0 8px 20px rgba(28, 74, 155, 0.3);
+            transform: rotate(-6deg);
+            z-index: 2;
+        }
+
+        .price-sticker span {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 500;
+            opacity: 0.9;
+        }
+
+        /* Banner Entrega Universitaria */
+        .delivery-banner {
+            background-color: var(--brand-orange);
+            color: var(--white);
+            padding: 1.4rem 5%;
+            text-align: center;
+        }
+
+        .delivery-banner-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 1.2rem;
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+
+        .delivery-pill {
+            background: rgba(255, 255, 255, 0.18);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.95rem;
+        }
+
+        /* Secciones Generales */
+        section {
+            padding: 5rem 5%;
+        }
+
+        .container {
+            max-width: 1150px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-tag {
+            color: var(--brand-blue);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 0.85rem;
+            display: block;
+            margin-bottom: 0.4rem;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 3.8vw, 3rem);
+            color: var(--brand-orange);
+            line-height: 1.15;
+        }
+
+        /* Menú y Precios */
+        .menu-section {
+            background-color: var(--bg-soft);
+        }
+
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .price-card {
+            background: var(--white);
+            border-radius: 26px;
+            padding: 2.3rem;
+            box-shadow: var(--shadow-card);
+            border: 2px solid transparent;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .price-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--brand-orange);
+        }
+
+        .price-card.featured {
+            background: linear-gradient(180deg, #fff 0%, #fff3f0 100%);
+            border: 2.5px solid var(--brand-orange);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -14px;
+            right: 24px;
+            background-color: var(--brand-blue);
+            color: var(--white);
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 0.35rem 1rem;
+            border-radius: 50px;
+            text-transform: uppercase;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 1rem;
+            border-bottom: 2px dashed #f0d8d3;
+            padding-bottom: 1rem;
+        }
+
+        .card-title {
+            font-size: 1.65rem;
+            color: var(--text-dark);
+        }
+
+        .card-price {
+            font-size: 2.4rem;
+            color: var(--brand-orange);
+        }
+
+        .card-price small {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .card-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .card-list li {
+            padding: 0.45rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-weight: 500;
+        }
+
+        /* Salsas y Complementos */
+        .custom-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .custom-box {
+            background-color: var(--bg-pink);
+            border-radius: 24px;
+            padding: 2rem;
+        }
+
+        .custom-box.toppings {
+            background-color: var(--bg-cream);
+            border: 2px solid rgba(28, 74, 155, 0.15);
+        }
+
+        .custom-box h3 {
+            font-size: 1.5rem;
+            color: var(--brand-blue);
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .salsa-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .salsa-pill {
+            background: var(--white);
+            padding: 1.1rem;
+            border-radius: 18px;
+            text-align: center;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .salsa-dot {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-bottom: 0.4rem;
+        }
+
+        .dot-verde { background-color: var(--salsa-green); }
+        .dot-roja { background-color: var(--brand-orange); }
+
+        .toppings-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+        }
+
+        .topping-chip {
+            background-color: var(--white);
+            color: var(--text-dark);
+            padding: 0.6rem 1.1rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+            border: 1.5px solid rgba(243, 75, 38, 0.2);
+        }
+
+        /* Galería de 5 Fotos (Slots 2, 3, 4 y 5) */
+        .gallery-section {
+            background-color: var(--bg-pink);
+        }
+
+        .gallery-note {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.75);
+            max-width: 680px;
+            margin: -2rem auto 2.5rem;
+            padding: 0.75rem 1.2rem;
+            border-radius: 14px;
+            font-size: 0.9rem;
+            color: var(--brand-blue);
+            font-weight: 600;
+        }
+
+        .photo-grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-card {
+            background: var(--white);
+            padding: 0.85rem;
+            border-radius: 22px;
+            box-shadow: var(--shadow-card);
+        }
+
+        .gallery-slot {
+            height: 250px;
+            border: 2px dashed var(--brand-coral);
+        }
+
+        /* Sección Métodos de Pago y Datos Bancarios */
+        .payment-section {
+            background-color: var(--bg-cream);
+        }
+
+        .payment-card-wrapper {
+            max-width: 820px;
+            margin: 0 auto;
+            background-color: var(--brand-orange);
+            color: var(--white);
+            border-radius: 28px;
+            padding: 2.8rem;
+            box-shadow: var(--shadow-soft);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .payment-header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            border-bottom: 2px dashed rgba(255, 255, 255, 0.35);
+            padding-bottom: 1.3rem;
+            margin-bottom: 1.8rem;
+        }
+
+        .payment-header h3 {
+            font-size: clamp(1.8rem, 3vw, 2.4rem);
+            letter-spacing: 1px;
+        }
+
+        .transfer-badge {
+            background-color: var(--white);
+            color: var(--brand-orange);
+            font-weight: 800;
+            padding: 0.45rem 1.1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+        }
+
+        .bank-details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .bank-item {
+            background: rgba(255, 255, 255, 0.14);
+            padding: 1.2rem 1.4rem;
+            border-radius: 18px;
+            backdrop-filter: blur(4px);
+        }
+
+        .bank-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.9;
+            display: block;
+            margin-bottom: 0.3rem;
+            font-weight: 700;
+        }
+
+        .bank-value {
+            font-size: 1.2rem;
+            font-weight: 700;
+            word-break: break-all;
+        }
+
+        .copy-btn {
+            margin-top: 0.65rem;
+            background: var(--white);
+            color: var(--brand-blue);
+            border: none;
+            padding: 0.35rem 0.85rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .copy-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .payment-note {
+            margin-top: 1.6rem;
+            font-size: 0.95rem;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.12);
+            padding: 0.85rem 1.2rem;
+            border-radius: 14px;
+        }
+
+        /* Arma tu pedido interactivo para WhatsApp */
+        .order-section {
+            background-color: var(--bg-soft);
+        }
+
+        .order-builder {
+            max-width: 780px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 30px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-soft);
+            border: 2.5px solid var(--brand-orange);
+        }
+
+        .form-group {
+            margin-bottom: 1.6rem;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 700;
+            color: var(--brand-blue);
+            margin-bottom: 0.65rem;
+            font-size: 1.05rem;
+        }
+
+        .option-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 0.8rem;
+        }
+
+        .check-card {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: var(--bg-cream);
+            padding: 0.85rem 1rem;
+            border-radius: 14px;
+            cursor: pointer;
+            font-weight: 600;
+            border: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .check-card:hover {
+            border-color: var(--brand-coral);
+        }
+
+        .check-card input {
+            accent-color: var(--brand-orange);
+            width: 18px;
+            height: 18px;
+        }
+
+        .text-input {
+            width: 100%;
+            padding: 0.9rem 1.1rem;
+            border-radius: 14px;
+            border: 2px solid #e7d2cd;
+            font-family: inherit;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .text-input:focus {
+            border-color: var(--brand-orange);
+        }
+
+        .order-total-bar {
+            background: var(--bg-pink);
+            padding: 1.2rem 1.5rem;
+            border-radius: 18px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .total-amount {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--brand-orange);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--brand-orange);
+            color: var(--white);
+            padding: 3.5rem 5% 2rem;
+            text-align: center;
+        }
+
+        .footer-brand {
+            font-size: 2.3rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .footer-slogan {
+            font-size: 1.35rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+        }
+
+        .footer-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.2rem;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .footer-info a, .footer-info span {
+            color: var(--white);
+            text-decoration: none;
+            background: rgba(255, 255, 255, 0.18);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+        }
+
+        .copyright {
+            font-size: 0.85rem;
+            opacity: 0.85;
+            border-top: 1px solid rgba(255, 255, 255, 0.25);
+            padding-top: 1.2rem;
+        }
+
+        /* Botón flotante WhatsApp */
+        .floating-wa {
+            position: fixed;
+            bottom: 22px;
+            right: 22px;
+            background-color: #25D366;
+            color: var(--white);
+            padding: 0.9rem 1.4rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            z-index: 999;
+            transition: transform 0.25s ease;
+        }
+
+        .floating-wa:hover {
+            transform: scale(1.06);
+        }
+
+        input[type="file"].hidden-file {
+            display: none;
+        }
+
+        @media (max-width: 850px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-desc {
+                margin: 0 auto 2rem;
+            }
+            .hero-cta-group {
+                justify-content: center;
+            }
+            nav ul {
+                display: none;
+            }
+            .hero-photo-slot {
+                height: 310px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navegación -->
+    <header>
+        <div class="nav-container">
+            <a href="#inicio" class="brand-logo">
+                <span class="font-logo top">CHILA</span>
+                <span class="font-script mid">quile</span>
+                <span class="font-logo bot">ANDO</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#menu">Menú</a></li>
+                    <li><a href="#galeria">Fotos</a></li>
+                    <li><a href="#pago">Transferencia</a></li>
+                    <li><a href="#pedir">Arma tu Orden</a></li>
+                    <li>
+                        <a href="https://wa.me/524491867873?text=Hola%20Chilaquileando!%20Quiero%20hacer%20un%20pedido" target="_blank" class="btn-whatsapp-nav">
+                            WhatsApp: 449 186 7873
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Principal -->
+    <section id="inicio" class="hero">
+        <div class="hero-grid">
+            <div>
+                <div class="location-pill">
+                    📍 Aguascalientes, Ags. • Entrega directa en tu Universidad
+                </div>
+                <h1 class="font-logo hero-title">CHILAQUILEANDO</h1>
+                <p class="font-script hero-slogan">"Tu antojo, tus chilaquiles, tu estilo"</p>
+                <p class="hero-desc">
+                    El desayuno o lunch ideal para <strong>estudiantes y administrativos</strong>. 
+                    Crujientes, recién bañados en salsa verde o roja, con todos tus complementos favoritos y <strong>te los llevamos hasta donde estés</strong> dentro del campus.
+                </p>
+                <div class="hero-cta-group">
+                    <a href="#pedir" class="btn-primary">
+                        Pedir por WhatsApp 📲
+                    </a>
+                    <a href="#menu" class="btn-secondary">
+                        Ver Menú
+                    </a>
+                </div>
+            </div>
+
+            <!-- ESPACIO FOTO 1 -->
+            <div class="hero-photo-frame">
+                <div class="price-sticker">
+                    <span>Desde</span>
+                    $55 MXN
+                </div>
+                <label class="photo-slot hero-photo-slot" for="file-foto-1" title="Haz clic para previsualizar tu Foto 1">
+                    <img id="preview-foto-1" alt="Chilaquileando Foto 1">
+                    <div class="slot-placeholder">
+                        <span class="slot-badge">Espacio Foto 1 de 5 (Principal)</span>
+                        <div class="slot-icon">📸</div>
+                        <p class="slot-title">Coloca aquí tu foto estrella de Chilaquileando</p>
+                        <p class="slot-hint">Haz clic aquí para probar una imagen o reemplaza el src en el código HTML</p>
+                    </div>
+                </label>
+                <input type="file" id="file-foto-1" class="hidden-file" accept="image/*" onchange="previewImage(this, 'preview-foto-1')">
+            </div>
+        </div>
+    </section>
+
+    <!-- Franja de Servicio Universitario -->
+    <div class="delivery-banner">
+        <div class="delivery-banner-inner">
+            <span>🎓 Pensado para tu horario entre clases y oficina:</span>
+            <span class="delivery-pill">⚡ Servicio accesible</span>
+            <span class="delivery-pill">🛵 Te lo llevamos a donde estés</span>
+            <span class="delivery-pill">💳 Aceptamos transferencia y efectivo</span>
+        </div>
+    </div>
+
+    <!-- Sección Menú y Precios -->
+    <section id="menu" class="menu-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Precios accesibles para la comunidad</span>
+                <h2 class="font-logo section-title">Elige tus Chilaquiles</h2>
+            </div>
+
+            <div class="pricing-cards">
+                <!-- Opción Sencillos -->
+                <div class="price-card">
+                    <div class="card-header">
+                        <h3 class="font-logo card-title">Sencillos</h3>
+                        <div class="font-logo card-price">$55 <small>MXN</small></div>
+                    </div>
+                    <p>Perfectos para matar el antojo entre clases sin afectar tu presupuesto.</p>
+                    <ul class="card-list">
+                        <li>✅ Totopos crujientes recién hechos</li>
+                        <li>✅ Salsa a elegir (Verde o Roja)</li>
+                        <li>✅ Todos los complementos incluidos</li>
+                        <li>✅ Entrega hasta tu ubicación</li>
+                    </ul>
+                </div>
+
+                <!-- Opción Con Pollo -->
+                <div class="price-card featured">
+                    <span class="popular-badge">⭐ Favorito del Campus</span>
+                    <div class="card-header">
+                        <h3 class="font-logo card-title">Con Pollo</h3>
+                        <div class="font-logo card-price">$75 <small>MXN</small></div>
+                    </div>
+                    <p>Porción generosa con pechuga de pollo deshebrada para aguantar toda la jornada.</p>
+                    <ul class="card-list">
+                        <li>✅ Totopos crujientes + Pollo deshebrado</li>
+                        <li>✅ Salsa a elegir (Verde o Roja)</li>
+                        <li>✅ Todos los complementos incluidos</li>
+                        <li>✅ Entrega hasta tu ubicación</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Salsas y Complementos -->
+            <div class="custom-grid">
+                <div class="custom-box">
+                    <h3 class="font-logo">🌶️ 1. Escoge tu Salsa</h3>
+                    <div class="salsa-options">
+                        <div class="salsa-pill">
+                            <span class="salsa-dot dot-verde"></span>
+                            <div>Salsa Verde</div>
+                            <small style="color: var(--text-muted); font-weight: 500;">Fresca y con toque casero</small>
+                        </div>
+                        <div class="salsa-pill">
+                            <span class="salsa-dot dot-roja"></span>
+                            <div>Salsa Roja</div>
+                            <small style="color: var(--text-muted); font-weight: 500;">Tradicional y llena de sabor</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="custom-box toppings">
+                    <h3 class="font-logo">🥑 2. Compleméntalos a tu Estilo</h3>
+                    <p style="margin-bottom: 1rem; font-size: 0.95rem;">Combínalos como más te gusten:</p>
+                    <div class="toppings-tags">
+                        <span class="topping-chip">🧀 Queso</span>
+                        <span class="topping-chip">🥛 Crema</span>
+                        <span class="topping-chip">🧅 Cebolla</span>
+                        <span class="topping-chip">🌿 Cilantro</span>
+                        <span class="topping-chip">🥑 Aguacate</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería con los 4 espacios restantes (Total 5 fotos en la página) -->
+    <section id="galeria" class="gallery-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Antojo a primera vista</span>
+                <h2 class="font-logo section-title">Galería Chilaquileando</h2>
+            </div>
+            <p class="gallery-note">
+                💡 Esta página cuenta con <strong>5 espacios para fotos</strong> (1 principal arriba + 4 aquí abajo). Puedes hacer clic en cada recuadro para previsualizar tus fotos o poner sus rutas en el HTML.
+            </p>
+
+            <div class="photo-grid-4">
+                <!-- ESPACIO FOTO 2 -->
+                <div class="gallery-card">
+                    <label class="photo-slot gallery-slot" for="file-foto-2">
+                        <img id="preview-foto-2" alt="Chilaquileando Foto 2">
+                        <div class="slot-placeholder">
+                            <span class="slot-badge">Foto 2 de 5</span>
+                            <div class="slot-icon">🥗</div>
+                            <p class="slot-title">Chilaquiles Verdes</p>
+                            <p class="slot-hint">Clic para cargar imagen</p>
+                        </div>
+                    </label>
+                    <input type="file" id="file-foto-2" class="hidden-file" accept="image/*" onchange="previewImage(this, 'preview-foto-2')">
+                </div>
+
+                <!-- ESPACIO FOTO 3 -->
+                <div class="gallery-card">
+                    <label class="photo-slot gallery-slot" for="file-foto-3">
+                        <img id="preview-foto-3" alt="Chilaquileando Foto 3">
+                        <div class="slot-placeholder">
+                            <span class="slot-badge">Foto 3 de 5</span>
+                            <div class="slot-icon">🌶️</div>
+                            <p class="slot-title">Chilaquiles Rojos</p>
+                            <p class="slot-hint">Clic para cargar imagen</p>
+                        </div>
+                    </label>
+                    <input type="file" id="file-foto-3" class="hidden-file" accept="image/*" onchange="previewImage(this, 'preview-foto-3')">
+                </div>
+
+                <!-- ESPACIO FOTO 4 -->
+                <div class="gallery-card">
+                    <label class="photo-slot gallery-slot" for="file-foto-4">
+                        <img id="preview-foto-4" alt="Chilaquileando Foto 4">
+                        <div class="slot-placeholder">
+                            <span class="slot-badge">Foto 4 de 5</span>
+                            <div class="slot-icon">🍗</div>
+                            <p class="slot-title">Especial con Pollo</p>
+                            <p class="slot-hint">Clic para cargar imagen</p>
+                        </div>
+                    </label>
+                    <input type="file" id="file-foto-4" class="hidden-file" accept="image/*" onchange="previewImage(this, 'preview-foto-4')">
+                </div>
+
+                <!-- ESPACIO FOTO 5 -->
+                <div class="gallery-card">
+                    <label class="photo-slot gallery-slot" for="file-foto-5">
+                        <img id="preview-foto-5" alt="Chilaquileando Foto 5">
+                        <div class="slot-placeholder">
+                            <span class="slot-badge">Foto 5 de 5</span>
+                            <div class="slot-icon">🎓</div>
+                            <p class="slot-title">Entregas en Campus</p>
+                            <p class="slot-hint">Clic para cargar imagen</p>
+                        </div>
+                    </label>
+                    <input type="file" id="file-foto-5" class="hidden-file" accept="image/*" onchange="previewImage(this, 'preview-foto-5')">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Pago por Transferencia -->
+    <section id="pago" class="payment-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Facilidad al pagar</span>
+                <h2 class="font-logo section-title">¡Aceptamos Transferencia!</h2>
+            </div>
+
+            <div class="payment-card-wrapper">
+                <div class="payment-header">
+                    <h3 class="font-display">DATOS BANCARIOS</h3>
+                    <span class="transfer-badge">💳 Pago rápido sin efectivo</span>
+                </div>
+
+                <div class="bank-details-grid">
+                    <div class="bank-item">
+                        <span class="bank-label">Titular de la cuenta</span>
+                        <div class="bank-value">Vania Fernanda Patrón González</div>
+                    </div>
+
+                    <div class="bank-item">
+                        <span class="bank-label">Banco</span>
+                        <div class="bank-value">Banco Banamex</div>
+                    </div>
+
+                    <div class="bank-item">
+                        <span class="bank-label">Número de Tarjeta</span>
+                        <div class="bank-value" id="card-num">5204 1604 1875 9879</div>
+                        <button type="button" class="copy-btn" onclick="copyText('5204160418759879', this)">Copiar tarjeta</button>
+                    </div>
+
+                    <div class="bank-item">
+                        <span class="bank-label">Número de Cuenta</span>
+                        <div class="bank-value" id="acc-num">002010702454440696</div>
+                        <button type="button" class="copy-btn" onclick="copyText('002010702454440696', this)">Copiar cuenta</button>
+                    </div>
+                </div>
+
+                <p class="payment-note">
+                    📲 Una vez realizada tu transferencia, envíanos tu comprobante por WhatsApp al <strong>449 186 7873</strong> junto con tu pedido.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Constructor rápido de pedido para WhatsApp -->
+    <section id="pedir" class="order-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Pide fácil y rápido</span>
+                <h2 class="font-logo section-title">Arma tu Pedido</h2>
+            </div>
+
+            <div class="order-builder">
+                <div class="form-group">
+                    <label class="form-label">1. ¿Cómo los quieres hoy?</label>
+                    <div class="option-grid">
+                        <label class="check-card">
+                            <input type="radio" name="tipo" value="Sencillos ($55)" data-price="55" checked onchange="updateTotal()">
+                            Sencillos — $55
+                        </label>
+                        <label class="check-card">
+                            <input type="radio" name="tipo" value="Con Pollo ($75)" data-price="75" onchange="updateTotal()">
+                            Con Pollo — $75
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">2. Elige tu salsa:</label>
+                    <div class="option-grid">
+                        <label class="check-card">
+                            <input type="radio" name="salsa" value="Salsa Verde" checked>
+                            🟢 Salsa Verde
+                        </label>
+                        <label class="check-card">
+                            <input type="radio" name="salsa" value="Salsa Roja">
+                            🔴 Salsa Roja
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">3. Selecciona tus complementos:</label>
+                    <div class="option-grid">
+                        <label class="check-card"><input type="checkbox" name="topping" value="Queso" checked> Queso</label>
+                        <label class="check-card"><input type="checkbox" name="topping" value="Crema" checked> Crema</label>
+                        <label class="check-card"><input type="checkbox" name="topping" value="Cebolla" checked> Cebolla</label>
+                        <label class="check-card"><input type="checkbox" name="topping" value="Cilantro" checked> Cilantro</label>
+                        <label class="check-card"><input type="checkbox" name="topping" value="Aguacate" checked> Aguacate</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">4. Método de pago:</label>
+                    <div class="option-grid">
+                        <label class="check-card">
+                            <input type="radio" name="pago" value="Transferencia bancaria" checked>
+                            💳 Transferencia
+                        </label>
+                        <label class="check-card">
+                            <input type="radio" name="pago" value="Efectivo al recibir">
+                            💵 Efectivo
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="ubicacion">5. ¿En qué parte de la universidad te los llevamos?</label>
+                    <input type="text" id="ubicacion" class="text-input" placeholder="Ej. Edificio B, Cafetería, Coordinación, Entrada principal...">
+                </div>
+
+                <div class="order-total-bar">
+                    <div>
+                        <span style="font-size: 0.9rem; font-weight: 600; display: block;">Total estimado:</span>
+                        <span class="font-logo total-amount" id="total-display">$55 MXN</span>
+                    </div>
+                    <button type="button" class="btn-primary" onclick="sendWhatsAppOrder()">
+                        Enviar pedido al 449 186 7873 🚀
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="font-logo footer-brand">CHILAQUILEANDO</div>
+        <p class="font-script footer-slogan">"Tu antojo, tus chilaquiles, tu estilo"</p>
+        <div class="footer-info">
+            <span>📍 Aguascalientes, Aguascalientes, México</span>
+            <span>💳 Aceptamos transferencia</span>
+            <a href="https://wa.me/524491867873" target="_blank">📲 WhatsApp: 449 186 7873</a>
+        </div>
+        <p class="copyright">© 2026 Chilaquileando Aguascalientes. Servicio universitario a tu alcance.</p>
+    </footer>
+
+    <!-- Botón flotante de WhatsApp -->
+    <a href="https://wa.me/524491867873?text=Hola%20Chilaquileando!%20Me%20gustar%C3%ADa%20hacer%20un%20pedido" target="_blank" class="floating-wa">
+        <span>💬 Pedir: 449 186 7873</span>
+    </a>
+
+    <script>
+        function previewImage(input, previewId) {
+            const file = input.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const img = document.getElementById(previewId);
+                    img.src = e.target.result;
+                    img.parentElement.classList.add('has-image');
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function copyText(text, btn) {
+            navigator.clipboard.writeText(text).then(() => {
+                const original = btn.textContent;
+                btn.textContent = '¡Copiado!';
+                setTimeout(() => {
+                    btn.textContent = original;
+                }, 2000);
+            });
+        }
+
+        function updateTotal() {
+            const selected = document.querySelector('input[name="tipo"]:checked');
+            const price = selected ? selected.getAttribute('data-price') : '55';
+            document.getElementById('total-display').textContent = `$${price} MXN`;
+        }
+
+        function sendWhatsAppOrder() {
+            const tipo = document.querySelector('input[name="tipo"]:checked').value;
+            const salsa = document.querySelector('input[name="salsa"]:checked').value;
+            const pago = document.querySelector('input[name="pago"]:checked').value;
+            const toppings = Array.from(document.querySelectorAll('input[name="topping"]:checked'))
+                .map(el => el.value);
+            const ubicacion = document.getElementById('ubicacion').value.trim() || 'Por confirmar en la universidad';
+
+            const toppingsText = toppings.length > 0 ? toppings.join(', ') : 'Sin complementos';
+
+            const message = `¡Hola *Chilaquileando*! Quiero hacer un pedido:
+
+` +
+                `🍽️ *Orden:* ${tipo}
+` +
+                `🌶️ *Salsa:* ${salsa}
+` +
+                `🥑 *Complementos:* ${toppingsText}
+` +
+                `💳 *Forma de pago:* ${pago}
+` +
+                `📍 *Entregar en:* ${ubicacion}
+
+` +
+                `_Tu antojo, tus chilaquiles, tu estilo_`;
+
+            const phone = '524491867873';
+            const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>
